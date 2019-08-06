@@ -4,7 +4,7 @@
     <div>
       <FeaturedArticle :article='this.results[0]'/>
     </div>
-    <div>
+    <div class='cards'>
       <ul>
         <li v-for="(item, index) in results">
           <StandardArticle :article='item'/>
@@ -44,3 +44,21 @@ export default {
   }
 }
 </script>
+<style>
+ul{
+  display: inline-flex;
+  list-style-type: none;
+}
+
+li{
+  padding: 10px;
+}
+.cards {
+display: grid;
+grid-template-columns: 80px 80px;
+grid-auto-rows: auto;
+grid-gap: 10px;
+padding: 10px;
+
+}
+</style>

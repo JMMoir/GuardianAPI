@@ -21,7 +21,7 @@ export default{
 <style>
 
 .feature{
-  border-style: solid;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   width: 600px;
   height: 200px;
   overflow: hidden;
@@ -31,7 +31,6 @@ img {
   max-width: 100%;
   max-height: 100%;
   float: left;
-
 }
 
 </style>

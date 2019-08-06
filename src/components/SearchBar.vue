@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <input type=text v-model='searchValue'/>
+    <input type=text v-model='searchValue' v-on:keydown.enter="handleSearchValue"/>
     <button v-on:click="handleSearchValue">Search</button>
   </div>
 </template>

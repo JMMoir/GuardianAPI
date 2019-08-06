@@ -3,6 +3,7 @@
     <img :src="article.blocks.main.elements[0].assets[0].file"/>
     <div class='container'>
       <h3>{{article.webTitle}}</h3>
+      <a :href="article.webUrl">View full Story</a>
   </div>
   </div>
 </template>
@@ -22,5 +23,8 @@ export default {
 
 .container {
   padding: 2px 16px;
+}
+a{
+  text-decoration: none;
 }
 </style>

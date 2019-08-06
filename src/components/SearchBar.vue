@@ -19,6 +19,7 @@ export default {
   methods:{
     handleSearchValue(event){
       eventBus.$emit('search-input', this.searchValue)
+      this.searchValue = ''
     }
   }
 }

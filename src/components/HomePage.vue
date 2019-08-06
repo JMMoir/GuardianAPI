@@ -2,6 +2,12 @@
   <div>
     <p>Home</p>
     <FeaturedArticle :article='this.results[0]'/>
+    <ul>
+      <li v-for="(item, index) in results">
+        <StandardArticle :article='item'/>
+      </li>
+    </ul>
+
   </div>
 </template>
 

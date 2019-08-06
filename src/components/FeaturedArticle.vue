@@ -1,5 +1,11 @@
 <template>
-  <p>{{article.webTitle}}</p>
+  <div class = 'feature'>
+    <h3>{{article.webTitle}}</h3>
+    <!-- <p>{{article.blocks.body[0].bodyTextSummary}}</p> -->
+    <p>by: {{article.tags[0].webTitle}}</p>
+    <!-- <p>{{article.blocks.main.elements[0].assets[0].file}}</p> -->
+    <img :src="article.blocks.main.elements[0].assets[0].file"/>
+  </div>
 </template>
 
 <script>
@@ -8,3 +14,19 @@ export default{
   props:['article']
 }
 </script>
+
+<style>
+
+.feature{
+  border-style: solid;
+  width: 600px;
+  height: 200px;
+}
+
+img {
+  max-width: 100%;
+    max-height: 100%;
+  float: left;
+}
+
+</style>

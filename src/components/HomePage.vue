@@ -1,12 +1,16 @@
 <template>
   <div>
-    <p>Home</p>
-    <FeaturedArticle :article='this.results[0]'/>
-    <ul>
-      <li v-for="(item, index) in results">
-        <StandardArticle :article='item'/>
-      </li>
-    </ul>
+    <h1>Home</h1>
+    <div>
+      <FeaturedArticle :article='this.results[0]'/>
+    </div>
+    <div>
+      <ul>
+        <li v-for="(item, index) in results">
+          <StandardArticle :article='item'/>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </template>
@@ -31,10 +35,11 @@ export default {
 
   mounted(){
 
-    fetch('https://content.guardianapis.com/search?q=debate%20AND%20economy&tag=politics/politics&from-date=2014-01-01&api-key=d682a5ab-feca-4d46-b6c9-8507b8bd6efd')
+    fetch('https://content.guardianapis.com/search?&show-tags=contributor&q=boris&show-blocks=all&api-key=d682a5ab-feca-4d46-b6c9-8507b8bd6efd')
     .then(response => response.json())
     .then((data) => {
       this.results = data.response.results;
+      console.log(this.results);
     })
   }
 }

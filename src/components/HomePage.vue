@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Latest Stories</h1>
-    <SearchBar/>
+    <div id='search'>
+      <SearchBar/>
+    </div>
     <div class= 'feature'>
       <FeaturedArticle :article='this.results[0]'/>
     </div>
@@ -64,6 +66,9 @@ export default {
 </script>
 <style>
 
+.feature{
+  margin: 0 auto;
+}
 
 ul{
   list-style-type: none;
@@ -74,11 +79,17 @@ li{
 }
 
 .cards{
+  padding-top: 100px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 20px;
   align-items: center;
   width: 900px;
+}
+
+#search{
+  padding-bottom: 30px;
 }
 
 </style>

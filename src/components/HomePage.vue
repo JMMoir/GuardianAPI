@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <h1>Latest Stories</h1>
+    <SearchBar/>
     <div>
       <FeaturedArticle :article='this.results[0]'/>
     </div>
@@ -19,12 +20,14 @@
 import FeaturedArticle from './FeaturedArticle.vue';
 import StandardArticle from './StandardArticle.vue';
 import SearchBar from './SearchBar.vue';
+import { eventBus } from '../main.js';
 
 export default {
   name: 'HomePage',
   data(){
     return{
-      results:[]
+      results:[],
+      searchValue:'riots hong kong'
     }
   },
   components:{
@@ -33,13 +36,28 @@ export default {
     SearchBar
   },
 
-  mounted(){
+  methods:{
+    getData(){
+      fetch(`https://content.guardianapis.com/search?&show-tags=contributor&q=${this.searchValue}&show-blocks=all&api-key=d682a5ab-feca-4d46-b6c9-8507b8bd6efd`)
+      .then(response => response.json())
+      .then((data) => {
+        this.results = data.response.results;
+      })
+    }
+  },
 
-    fetch('https://content.guardianapis.com/search?&show-tags=contributor&q=boris&show-blocks=all&api-key=d682a5ab-feca-4d46-b6c9-8507b8bd6efd')
-    .then(response => response.json())
-    .then((data) => {
-      this.results = data.response.results;
-      console.log(this.results);
+  watch:{
+    searchValue: function(){
+      this.getData()
+    }
+  },
+
+  mounted(){
+    this.getData()
+
+
+    eventBus.$on('search-input', (value) => {
+        this.searchValue = value;
     })
   }
 }

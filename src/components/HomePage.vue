@@ -2,11 +2,11 @@
   <div>
     <h1>Latest Stories</h1>
     <SearchBar/>
-    <div>
+    <div class= 'feature'>
       <FeaturedArticle :article='this.results[0]'/>
     </div>
-    <div class='cards'>
-      <ul>
+    <div class='container'>
+      <ul class='cards'>
         <li v-for="(item, index) in results">
           <StandardArticle :article='item'/>
         </li>
@@ -27,7 +27,7 @@ export default {
   data(){
     return{
       results:[],
-      searchValue:'riots hong kong'
+      searchValue:''
     }
   },
   components:{
@@ -63,20 +63,22 @@ export default {
 }
 </script>
 <style>
+
+
 ul{
-  display: inline-flex;
   list-style-type: none;
 }
 
 li{
   padding: 10px;
 }
-.cards {
-display: grid;
-grid-template-columns: 80px 80px;
-grid-auto-rows: auto;
-grid-gap: 10px;
-padding: 10px;
 
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: center;
+  width: 900px;
 }
+
 </style>

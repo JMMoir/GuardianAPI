@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Mdoal',
+  name: 'Modal',
   props:["article"],
 
   methods:{
@@ -50,5 +50,6 @@ export default {
   .btn{
     border: 1px solid #4AAE9B;
     border-radius: 2px;
+    cursor: pointer;
   }
 </style>

@@ -49,5 +49,6 @@ a{
 .btn{
   border: 1px solid #4AAE9B;
   border-radius: 2px;
+  cursor: pointer;
 }
 </style>

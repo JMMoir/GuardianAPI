@@ -7,10 +7,8 @@
       <h3>{{article.webTitle}}</h3>
 
       <p>by: {{article.tags[0].webTitle}}</p>
-      <!-- <a :href="article.webUrl">View full Story</a> -->
       <button type='button' class='btn' @click="showModal">View article</button>
       <modal v-show="modalIsVisible" @close="hideModal" :article="article"/>
-      <!-- <p slot="body">{{article.blocks.body[0].bodyTextSummary}}</p> -->
   </div>
 
   </div>
@@ -62,6 +60,7 @@ a{
 .btn{
   border: 1px solid #4AAE9B;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 </style>

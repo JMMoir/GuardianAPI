@@ -14,7 +14,6 @@
         </li>
       </ul>
     </div>
-
   </div>
 </template>
 
@@ -44,7 +43,6 @@ export default {
       .then(response => response.json())
       .then((data) => {
         this.results = data.response.results;
-        console.log(this.results);
       })
     }
   },

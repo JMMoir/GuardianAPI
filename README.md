@@ -74,7 +74,12 @@ positioning isn't ideal and I would like to be able to click on the screen aroun
 for the modal to close.  This is making it a slightly less enjoyable user experience, having to
 scroll to the end of the article isn't great if you don't want to read it.
 
-I would also tidy up the css, I'm not completely happy with the positioning of some of article 
+I would also tidy up the css, I'm not completely happy with the positioning of some of article
 cards and image can some time change depending on it's size which makes it look a bit untidy.  
 I would also like to add some additional search functionality to incorporate dates, at the
 moment some of the articles appearing are quite old.
+
+
+N.B
+
+App deployed using Heroku at https://guardain-news.herokuapp.com/

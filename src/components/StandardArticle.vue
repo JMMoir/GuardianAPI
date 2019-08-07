@@ -1,17 +1,35 @@
-<template lang="html">
+<template v-if="props">
   <div class = 'card'>
     <img :src="article.blocks.main.elements[0].assets[0].file"/>
     <div class='container'>
       <h3>{{article.webTitle}}</h3>
-      <a :href="article.webUrl">View full Story</a>
+      <button type='button' class='btn' @click="showModal">View article</button>
+      <modal v-show="modalIsVisible" @close="hideModal" :article="article"/>
   </div>
   </div>
 </template>
 
 <script>
+import Modal from './Modal.vue';
 export default {
   name: 'StandardArticle',
-  props:['article']
+  props:['article'],
+  components:{
+    Modal
+  },
+  data(){
+    return{
+      modalIsVisible: false
+    }
+  },
+  methods:{
+    showModal(){
+      this.modalIsVisible = true;
+    },
+    hideModal(){
+      this.modalIsVisible = false;
+    }
+  }
 }
 </script>
 
@@ -26,5 +44,10 @@ export default {
 }
 a{
   text-decoration: none;
+}
+
+.btn{
+  border: 1px solid #4AAE9B;
+  border-radius: 2px;
 }
 </style>

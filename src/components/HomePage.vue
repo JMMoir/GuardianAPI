@@ -29,7 +29,7 @@ export default {
   data(){
     return{
       results:[],
-      searchValue:'UK'
+      searchValue:'software'
     }
   },
   components:{
@@ -44,11 +44,13 @@ export default {
       .then(response => response.json())
       .then((data) => {
         this.results = data.response.results;
+        console.log(this.results);
       })
     }
   },
 
   watch:{
+    // any time the searchValue gets updated a new fetch will be triggered with the new search value
     searchValue: function(){
       this.getData()
     }
@@ -56,7 +58,6 @@ export default {
 
   mounted(){
     this.getData()
-
 
     eventBus.$on('search-input', (value) => {
         this.searchValue = value;

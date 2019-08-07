@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Stories from the Guardian API</h1>
+    <h1>Stories from The Guardian API</h1>
     <div id='search'>
       <SearchBar/>
     </div>

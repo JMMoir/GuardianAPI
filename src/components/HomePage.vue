@@ -1,11 +1,11 @@
 <template>
   <div>
     <h1>Stories from The Guardian API</h1>
-    <div id='search'>
-      <SearchBar/>
+    <div class='nav-bar'>
+      <NavBar/>
     </div>
-    <div class= 'feature'>
-      <FeaturedArticle :article='this.results[0]'/>
+    <div class= 'feature-box'>
+      <FeaturedArticle :article='this.article'/>
     </div>
     <div class='container'>
       <ul class='cards'>
@@ -20,7 +20,7 @@
 <script>
 import FeaturedArticle from './FeaturedArticle.vue';
 import StandardArticle from './StandardArticle.vue';
-import SearchBar from './SearchBar.vue';
+import NavBar from './NavBar.vue';
 import { eventBus } from '../main.js';
 
 export default {
@@ -28,13 +28,14 @@ export default {
   data(){
     return{
       results:[],
+      article: [],
       searchValue:'software'
     }
   },
   components:{
     FeaturedArticle,
     StandardArticle,
-    SearchBar
+    NavBar
   },
 
   methods:{
@@ -43,6 +44,8 @@ export default {
       .then(response => response.json())
       .then((data) => {
         this.results = data.response.results;
+        this.results.pop();
+        this.article = this.results.shift()
       })
     }
   },
@@ -65,8 +68,10 @@ export default {
 </script>
 <style>
 
-.feature{
+.feature-box{
   margin: 0 auto;
+  width: 70%;
+  height: 350px;
 }
 
 ul{
@@ -81,14 +86,14 @@ li{
   padding-top: 100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
   align-items: center;
-  width: 900px;
+  width: 85%
 }
 
-#search{
-  padding-bottom: 30px;
+.nav-bar{
+  margin: 0 auto;
 }
 
 </style>

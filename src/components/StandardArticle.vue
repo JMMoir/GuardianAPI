@@ -2,8 +2,10 @@
   <div class = 'card'>
     <img :src="article.blocks.main.elements[0].assets[0].file"/>
     <div class='container'>
-      <h3>{{article.webTitle}}</h3>
-      <button type='button' class='btn' @click="showModal">View article</button>
+      <div class='title'>
+        <h3>{{article.webTitle}}</h3>
+      </div>
+      <button type='button' class='btn' @click="showModal" @click.stop="close-modal">View article</button>
       <modal v-show="modalIsVisible" @close="hideModal" :article="article"/>
   </div>
   </div>
@@ -35,6 +37,10 @@ export default {
 
 <style lang="css" scoped>
 
+.title{
+
+}
+
 .card{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -56,4 +62,5 @@ img{
   border-radius: 2px;
   cursor: pointer;
 }
+
 </style>

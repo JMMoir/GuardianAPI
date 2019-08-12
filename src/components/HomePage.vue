@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div @click="close($event)">
     <h1>Stories from The Guardian API</h1>
     <div class='nav-bar'>
       <NavBar/>
@@ -14,6 +15,7 @@
         </li>
       </ul>
     </div>
+  </div>
   </div>
 </template>
 
@@ -47,6 +49,10 @@ export default {
         // this.results.pop();
         this.article = this.results.shift()
       })
+    },
+
+    close(event){
+      eventBus.$emit('close-modal')
     }
   },
 
@@ -89,11 +95,12 @@ li{
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
   align-items: center;
-  width: 85%
+  width: 85%;
 }
 
 .nav-bar{
   margin: 0 auto;
 }
+
 
 </style>

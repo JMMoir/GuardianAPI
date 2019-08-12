@@ -6,7 +6,7 @@
       <h2>Featured Story</h2>
       <h3>{{article.webTitle}}</h3>
       <p>by: {{article.tags[0].webTitle}}</p>
-      <button type='button' class='btn' @click="showModal">View article</button>
+      <button type='button' class='btn' @click="showModal" @click.stop="close-modal">View article</button>
       <modal v-show="modalIsVisible" @close="hideModal" :article="article"/>
   </div>
 
@@ -31,7 +31,10 @@ export default{
       this.modalIsVisible = true;
     },
     hideModal(){
-      this.modalIsVisible = false;
+      if(this.modalIsVisible === true){
+        this.modalIsVisible = false;
+      }
+
     }
   }
 }

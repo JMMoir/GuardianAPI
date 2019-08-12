@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container" @click.stop="close-modal">
     <div class="modal">
       <div class="modal-body">
         <h3>{{article.webTitle}}</h3>
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main.js';
+
 export default {
   name: 'Modal',
   props:["article"],
@@ -19,6 +21,9 @@ export default {
     close(){
       this.$emit('close')
     }
+  },
+  mounted(){
+    eventBus.$on('close-modal', this.close)
   }
 }
 </script>

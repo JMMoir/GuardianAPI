@@ -2,11 +2,15 @@
   <div class='container'>
     <div>
       <ul class='nav-bar'>
+        <li @click="handleUK">UK</li>
+        <li @click="handleEurope">Europe</li>
         <li @click="handleBusiness">Business</li>
         <li @click="handlePolitics">Politics</li>
         <li @click="handleTechnology">Technology</li>
-        <li id="search"><SearchBar/></li>
       </ul>
+    </div>
+    <div class='search'>
+      <SearchBar/>
     </div>
   </div>
 </template>
@@ -29,6 +33,12 @@ export default {
     },
     handleTechnology(event){
       eventBus.$emit('search-input', 'Technology')
+    },
+    handleUK(event){
+      eventBus.$emit('search-input', 'UK')
+    },
+    handleEurope(event){
+      eventBus.$emit('search-input', 'Europe')
     }
   }
 }
@@ -38,17 +48,23 @@ export default {
 
 .nav-bar{
   display: flex;
-  justify-content: flex-start;
+  margin: 0 auto;
 }
 
 .container{
   padding-bottom: 30px;
   margin: 0 auto;
-  width: 750px;
+  width: 90%;
+  display: flex;
 }
 
 li{
  cursor: pointer;
+}
+
+.search{
+  margin-left: 90%;
+
 }
 
 </style>

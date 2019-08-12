@@ -5,7 +5,6 @@
     <div>
       <h2>Featured Story</h2>
       <h3>{{article.webTitle}}</h3>
-
       <p>by: {{article.tags[0].webTitle}}</p>
       <button type='button' class='btn' @click="showModal">View article</button>
       <modal v-show="modalIsVisible" @close="hideModal" :article="article"/>
@@ -42,8 +41,8 @@ export default{
 
 .feature{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 750px;
-  height: 250px;
+  width: 100%;
+  height: 350px;
   overflow: hidden;
 }
 

@@ -44,7 +44,7 @@ export default {
       .then(response => response.json())
       .then((data) => {
         this.results = data.response.results;
-        this.results.pop();
+        // this.results.pop();
         this.article = this.results.shift()
       })
     }
